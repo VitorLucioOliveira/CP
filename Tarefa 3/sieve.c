@@ -19,7 +19,7 @@ int sieveOfEratosthenes(int n)
 
    memset(prime, true,(n+1)*sizeof(bool));
 
-   #pragma omp parallel for schedule(guided, 10)
+   #pragma omp parallel for schedule(static, 4)
    for (int p=2; p <= sqrt_n; p++)
    {
        // If prime[p] is not changed, then it is a prime
@@ -58,18 +58,17 @@ int main()
 //             '--> chunck (4) = 3,026s --> Speedup = 1.00
 
 
-
 // Arquitetura do meu notebook
 //-------------------------------
-      Architecture:             x86_64
-      CPU op-mode(s):         32-bit, 64-bit
-      Address sizes:          36 bits physical, 48 bits virtual
-      Byte Order:             Little Endian
-      CPU(s):                   4
-      On-line CPU(s) list:    0-3
-      Vendor ID:                GenuineIntel
-      Model name:             Intel(R) Core(TM) i5 CPU       M 460  @ 2.53GHz
-         CPU family:           6
-         Model:                37
-         Thread(s) per core:   2
+//     Architecture:             x86_64
+//     CPU op-mode(s):         32-bit, 64-bit
+//     Address sizes:          36 bits physical, 48 bits virtual
+//     Byte Order:             Little Endian
+//     CPU(s):                   4
+//     On-line CPU(s) list:    0-3
+//     Vendor ID:                GenuineIntel
+//     Model name:             Intel(R) Core(TM) i5 CPU       M 460  @ 2.53GHz
+//        CPU family:           6
+//        Model:                37
+//        Thread(s) per core:   2
 
